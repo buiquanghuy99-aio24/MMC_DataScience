@@ -1,0 +1,3 @@
+from lastname_firstname_grade_the_exams import read_file
+
+read_file()

@@ -32,7 +32,7 @@ CREATE TABLE `Group` (
 
 CREATE TABLE GroupAccount(
     GroupID         INT,
-    AccountID       INT,
+    AccountID       VARCHAR(50),
     JoinDate        DATE
 );
 
@@ -67,7 +67,7 @@ CREATE TABLE Exam(
     `Code`          VARCHAR(50),
     Title           VARCHAR(50),
     CategoryID      INT,
-    Duration        DATETIME,
+    Duration        INT,
     CreatorID       INT,
     CreateDate      DATE
 );

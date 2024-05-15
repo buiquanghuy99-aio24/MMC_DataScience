@@ -57,16 +57,15 @@ VALUES                  (100        ,   "Sr. Architect"         ,   60000       
                         (660        ,   "Jr. Designer"          ,   60000       ,   70000       ),
                         (234        ,   "Sr. Designer"          ,   70000       ,   90000       ),
                         (220        ,   "Sr. Designer"          ,   70000       ,   90000       ),
-                        (700        ,   'Scrum Master'          ,   60000       ,    70000      ),
-                        (720        ,   'PMO'                   ,   90000       ,    150000     ),
-                        (760        ,   'PE'                    ,   100000      ,    200000     ),
-                        (780        ,   'UX Designer'           ,   70000       ,    90000      );
+                        (700        ,   'Scrum Master'          ,   60000       ,   70000      ),
+                        (720        ,   'PMO'                   ,   90000       ,   150000     ),
+                        (760        ,   'PE'                    ,   100000      ,   200000     ),
+                        (780        ,   'UX Designer'           ,   70000       ,   90000      );
 
 INSERT INTO departments (DEPT_ID_DEP,   DEP_NAME            ,   MANAGER_ID  ,   LOC_ID  )
-VALUES                  (2          ,   "Architect Group"   ,   30001       ,   L0001   )
-                        (5          ,   "Software Group"    ,   30002       ,   L0002   )
-                        (7          ,   "Design Team"       ,   30003       ,   L0003   )
-                        (5          ,   "Software Group"    ,   30004       ,   L0004   )
+VALUES                  (2          ,   "Architect Group"   ,   30001       ,   'L0001' ),
+                        (5          ,   "Software Group"    ,   30002       ,   'L0002' ),
+                        (7          ,   "Design Team"       ,   30003       ,   'L0003' ),
                         (8          ,   'Software Group'    ,   30004       ,   'L0005' ),
                         (9          ,   'Architect Group'   ,   30005       ,   'L0006' ),
                         (10         ,   'Design Team'       ,   30006       ,   'L0007' );

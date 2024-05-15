@@ -23,9 +23,9 @@ VALUES                      ('jessica4@gmail.com'           , 'jessica_garcia'  
                             ('james99@aol.com'              , 'james_lopez'         , 'James Lopez'     , 4             , 11        , '2024-03-21'  ), -- Operator
                             ('alice.smith456@hotmail.com'   , 'alice_smith'         , 'Alice Smith'     , 1             , 6         , '2024-05-15'  ), -- Engineer
                             ('bob.jones789@protonmail.com'  , 'bob_jones'           , 'Bob Jones'       , 1             , 6         , '2024-05-16'  ), -- Engineer
-                            ('carol.wilson123@live.com'     , 'carol_wilson'        , 'Carol Wilson'    , 2             , 11        , '2024-05-31'  ), -- Operator
-                            ('dave_clark456@yandex.com'     , 'dave_clark'          , 'Dave Clark'      , 2             , 11        , '2024-05-31'  ), -- Operator
-                            ('ryan.martinez@icloud.com'     , 'ryan_martinez'       , 'Ryan Martinez'   , 2             , 11        , '2024-05-31'  ); -- Operator
+                            ('carol.wilson123@live.com'     , 'carol_wilson'        , 'Carol Wilson'    , 5             , 11        , '2024-05-31'  ), -- Operator
+                            ('dave_clark456@yandex.com'     , 'dave_clark'          , 'Dave Clark'      , 5             , 11        , '2024-05-31'  ), -- Operator
+                            ('ryan.martinez@icloud.com'     , 'ryan_martinez'       , 'Ryan Martinez'   , 5             , 11        , '2024-05-31'  ); -- Operator
 
 USE Testing_System_Db;
 INSERT INTO `Group`	        (GroupName			            , CreatorID		        , CreateDate        )

@@ -20,7 +20,7 @@ VALUES                      ('jessica4@gmail.com'           , 'jessica_garcia'  
                             ('amanda123@outlook.com'        , 'amanda_thompson'     , 'Amanda Thompson' , 2             , 9         , '2024-03-10'  ), -- Marketer
                             ('daniel12@yahoo.com'           , 'daniel_rodriguez'    , 'Daniel Rodriguez', 3             , 8         , '2024-03-20'  ), -- HR Specialist
                             ('ashley.martinez@aol.com'      , 'ashley_martinez'     , 'Ashley Martinez' , 4             , 10        , '2024-03-21'  ), -- Financial Analyst
-                            ('james99@aol.com'              , 'james_lopez'         , 'James Lopez'     , 4             , 11        , '2024-03-21'  ), -- Operator
+                            ('james99@aol.com'              , 'james_lopez'         , 'James Lopez'     , 5             , 11        , '2024-03-21'  ), -- Operator
                             ('alice.smith456@hotmail.com'   , 'alice_smith'         , 'Alice Smith'     , 1             , 6         , '2024-05-15'  ), -- Engineer
                             ('bob.jones789@protonmail.com'  , 'bob_jones'           , 'Bob Jones'       , 1             , 6         , '2024-05-16'  ), -- Engineer
                             ('carol.wilson123@live.com'     , 'carol_wilson'        , 'Carol Wilson'    , 5             , 11        , '2024-05-31'  ), -- Operator
@@ -70,15 +70,15 @@ VALUES                      (2                              , 10                
 USE Testing_System_Db;
 INSERT INTO Question        (`Content`			                                                , CategoryID    , TypeID	 , CreatorID    , CreateDate )
 VALUES                      (N'Có bao nhiêu bước trong phương pháp 5S nơi làm việc'             , 3             , 2         , 3            , '2024-04-01'),
-                            (N'Kể tên những mối nguy về hóa chất có thể gặp'                    , 3             , 1         , 3            , '2024-04-01'),
+                            (N'Kể tên những mối nguy về hóa chất có thể gặp'                    , 2             , 1         , 3            , '2024-04-01'),
                             (N'Quy định về việc trang bị đẩy đủ bảo hộ lao động'                , 2             , 1         , 3            , '2024-04-01'),
-                            (N'Bạn biết gì về nguyên lý 80/20'                                  , 6             , 1         , 5            , '2024-04-20'),
-                            (N'5W1H và 5M1E là viết tắt của những từ gì?'                       , 6             , 2         , 5            , '2024-04-20'),
-                            (N'Ứng dụng sơ đồ xương cá trong phân tích nguyên nnhân gốc rễ'     , 6             , 1         , 5            , '2024-04-20'),
-                            (N'Mục tiêu chất lượng của công ty là gì?'                          , 4             , 1         , 4            , '2024-04-22'),
-                            (N'Mục tiêu không tai nạn lao động trong 1 năm'                     , 4             , 2         , 1            , '2024-04-25'),
-                            (N'Công ty đang sản xuất những mặt hàng nào'                        , 5             , 1         , 3            , '2024-04-26'),
-                            (N'Các lỗi sản phẩm hay gặp trong sản xuất'                         , 5             , 2         , 3            , '2024-04-26');
+                            (N'Bạn biết gì về nguyên lý 80/20'                                  , 4             , 1         , 5            , '2024-04-20'),
+                            (N'5W1H và 5M1E là viết tắt của những từ gì?'                       , 4             , 2         , 5            , '2024-04-20'),
+                            (N'Ứng dụng sơ đồ xương cá trong phân tích nguyên nnhân gốc rễ'     , 4             , 1         , 5            , '2024-04-20'),
+                            (N'Mục tiêu chất lượng của công ty là gì?'                          , 3             , 1         , 4            , '2024-04-22'),
+                            (N'Mục tiêu không tai nạn lao động trong 1 năm'                     , 3             , 2         , 1            , '2024-04-25'),
+                            (N'Công ty đang sản xuất những mặt hàng nào'                        , 3             , 1         , 3            , '2024-04-26'),
+                            (N'Các lỗi sản phẩm hay gặp trong sản xuất'                         , 3             , 2         , 3            , '2024-04-26');
 
 USE Testing_System_Db;
 INSERT INTO Answer          (`Content`      , QuestionID, isCorrect )
@@ -90,8 +90,8 @@ VALUES                      (N'Trả lời 20'  , 9         , 0         ),
                             (N'Trả lời 25'  , 10        , 1         ),
                             (N'Trả lời 26'  , 16        , 1         ),
                             (N'Trả lời 27'  , 11        , 0         ),
-                            (N'Trả lời 28'  , 12        , 1         ),
-                            (N'Trả lời 29'  , 12        , 0         ),
+                            (N'Trả lời 28'  , 8         , 1         ),
+                            (N'Trả lời 29'  , 8         , 0         ),
                             (N'Trả lời 30'  , 1         , 1         ),
                             (N'Trả lời 31'  , 1         , 1         ),
                             (N'Trả lời 32'  , 15        , 0         ),
@@ -99,37 +99,51 @@ VALUES                      (N'Trả lời 20'  , 9         , 0         ),
                             (N'Trả lời 34'  , 9         , 1         ),
                             (N'Trả lời 35'  , 5         , 0         ),
                             (N'Trả lời 36'  , 13        , 1         ),
-                            (N'Trả lời 37'  , 12        , 1         ),
+                            (N'Trả lời 37'  , 18        , 1         ),
                             (N'Trả lời 38'  , 13        , 1         ),
-                            (N'Trả lời 39'  , 14        , 0         ),
+                            (N'Trả lời 39'  , 9         , 0         ),
                             (N'Trả lời 40'  , 15        , 1         ),
-                            (N'Trả lời 41'  , 14        , 0         );
+                            (N'Trả lời 41'  , 1         , 0         );
 
 USE Testing_System_Db;
 INSERT INTO Exam            (`Code`         , Title                 , CategoryID, Duration  , CreatorID , CreateDate )
-VALUES                      ('VTIQ009'      , N'Đề thi 5S'          , 2         , 60        , 2         ,'2024-04-05'),
-                            ('VTIQ010'      , N'Đề thi An toàn'     , 1         , 60        , 1         ,'2024-04-06'),
-                            ('VTIQ011'      , N'Đề thi Phân tích'   , 1         , 120       , 1         ,'2024-04-20'),
-                            ('VTIQ012'      , N'Đề thi An toàn'     , 2         , 120       , 2         ,'2024-04-21'),
-                            ('VTIQ013'      , N'Đề thi Mục tiêu'    , 2         , 60        , 2         ,'2024-04-25'),
-                            ('VTIQ014'      , N'Đề thi Sản phẩm'    , 1         , 120       , 1         ,'2024-04-26'),
-                            ('VTIQ015'      , N'Đề thi Phân tích'   , 2         , 60        , 2         ,'2024-04-27'),
-                            ('VTIQ016'      , N'Đề thi Sản phẩm'    , 2         , 60        , 2         ,'2024-04-27'),
-                            ('VTIQ017'      , N'Đề thi Phân tích'   , 2         , 60        , 2         ,'2024-04-28'),
-                            ('VTIQ018'      , N'Đề thi Mục tiêu'    , 2         , 60        , 2         ,'2024-04-30');
+VALUES                      ('VTIQ005'      , N'Đề thi định kỳ 01'  , 2         , 60        , 2         ,'2024-04-05'),
+                            ('VTIQ006'      , N'Đề thi An toàn 03'  , 1         , 60        , 1         ,'2024-04-06'),
+                            ('VTIQ007'      , N'Đề thi Phân tích 01', 1         , 120       , 1         ,'2024-04-20'),
+                            ('VTIQ008'      , N'Đề thi Mục tiêu'    , 2         , 60        , 2         ,'2024-04-25'),
+                            ('VTIQ009'      , N'Đề thi Sản phẩm'    , 1         , 120       , 1         ,'2024-04-26'),
+                            ('VTIQ010'      , N'Đề thi Phân tích 02', 2         , 60        , 2         ,'2024-04-27'),
+                            ('VTIQ011'      , N'Đề thi định kỳ 02'  , 2         , 60        , 2         ,'2024-04-27');
+
 
 USE Testing_System_Db;
 INSERT INTO ExamQuestion    (ExamID , QuestionID)
-VALUES                      (9      , 9         ),
-                            (10     , 11        ),
-                            (11     , 13        ),
-                            (12     , 10        ),
-                            (13     , 16        ),
-                            (14     , 17        ),
-                            (15     , 12        ),
-                            (16     , 18        ),
-                            (17     , 14        ),
-                            (18     , 15        );
+VALUES                      (5      , 1         ),
+                            (5      , 3         ),
+                            (5      , 4         ),
+                            (5      , 6         ),
+                            (5      , 7         ),
+                            (6      , 11        ),
+                            (6      , 15        ),
+                            (6      , 6         ),
+                            (6      , 10        ),
+                            (6      , 9         ),
+                            (7      , 13        ),
+                            (7      , 12        ),
+                            (8      , 16        ),
+                            (8      , 15        ),
+                            (9      , 18        ),
+                            (9      , 15        ),
+                            (9      , 17        ),
+                            (10     , 13        ),
+                            (10     , 14        ),
+                            (11     , 16        ),
+                            (11     , 10        ),
+                            (11     , 17        ),
+                            (11     , 18        ),
+                            (11     , 4         ),
+                            (11     , 5         );
+
 
 /*markdown
 # Question 2. Truy vấn tất cả các phòng ban

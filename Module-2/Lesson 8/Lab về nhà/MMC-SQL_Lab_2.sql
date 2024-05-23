@@ -1,4 +1,4 @@
--- Active: 1714660276272@@127.0.0.1@3306@information_schema
+-- Active: 1714660276272@@127.0.0.1@3306@testing_system_db
 /*============================== CREATE DATABASE =======================================*/
 
 DROP DATABASE IF EXISTS Testing_System_Db;
@@ -29,8 +29,8 @@ CREATE TABLE `Account` (
     DepartmentID    TINYINT UNSIGNED NOT NULL,
     PositionID      TINYINT UNSIGNED NOT NULL,
     CreateDate      DATETIME DEFAULT NOW(),
-    FOREIGN KEY     (DepartmentID)  REFERENCES Department(DepartmentID),
-    FOREIGN KEY     (PositionID)    REFERENCES `Position`(PositionID)
+    FOREIGN KEY     (DepartmentID)  REFERENCES Department(DepartmentID) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY     (PositionID)    REFERENCES `Position`(PositionID)   ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS `Group`;
@@ -39,7 +39,7 @@ CREATE TABLE `Group` (
     GroupName       NVARCHAR(50) NOT NULL UNIQUE KEY,
     CreatorID       TINYINT UNSIGNED,
     CreateDate      DATETIME DEFAULT NOW(),
-    FOREIGN KEY     (CreatorID)     REFERENCES `Account`(AccountID)
+    FOREIGN KEY     (CreatorID)     REFERENCES `Account`(AccountID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS GroupAccount;
@@ -48,7 +48,7 @@ CREATE TABLE GroupAccount(
     AccountID       TINYINT UNSIGNED NOT NULL,
     JoinDate        DATETIME DEFAULT NOW(),
     PRIMARY KEY     (GroupID, AccountID),
-    FOREIGN KEY     (GroupID)       REFERENCES `Group`(GroupID)
+    FOREIGN KEY     (GroupID)       REFERENCES `Group`(GroupID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS TypeQuestion;
@@ -71,9 +71,9 @@ CREATE TABLE Question(
     TypeID          TINYINT UNSIGNED NOT NULL,
     CreatorID       TINYINT UNSIGNED NOT NULL,
     CreateDate      DATETIME DEFAULT NOW(),
-    FOREIGN KEY     (CategoryID)    REFERENCES CategoryQuestion(CategoryID),
-    FOREIGN KEY     (TypeID)        REFERENCES TypeQuestion(TypeID),
-    FOREIGN KEY     (CreatorID)     REFERENCES `Account`(AccountID)
+    FOREIGN KEY     (CategoryID)    REFERENCES CategoryQuestion(CategoryID) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY     (TypeID)        REFERENCES TypeQuestion(TypeID) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY     (CreatorID)     REFERENCES `Account`(AccountID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS Answer;
@@ -82,7 +82,7 @@ CREATE TABLE Answer(
     `Content`       NVARCHAR(100) NOT NULL,
     QuestionID      TINYINT UNSIGNED NOT NULL,
     isCorrect       BIT DEFAULT 1,
-    FOREIGN KEY     (QuestionID)    REFERENCES Question(QuestionID)
+    FOREIGN KEY     (QuestionID)    REFERENCES Question(QuestionID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS Exam;
@@ -94,8 +94,8 @@ CREATE TABLE Exam(
     Duration        TINYINT UNSIGNED NOT NULL,
     CreatorID       TINYINT UNSIGNED NOT NULL,
     CreateDate      DATETIME DEFAULT NOW(),
-    FOREIGN KEY     (CategoryID)    REFERENCES CategoryQuestion(CategoryID),
-    FOREIGN KEY     (CreatorID)     REFERENCES `Account`(AccountID)
+    FOREIGN KEY     (CategoryID)    REFERENCES CategoryQuestion(CategoryID) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY     (CreatorID)     REFERENCES `Account`(AccountID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS ExamQuestion;
@@ -103,8 +103,8 @@ CREATE TABLE ExamQuestion(
     ExamID          TINYINT UNSIGNED NOT NULL,
     QuestionID      TINYINT UNSIGNED NOT NULL,
     PRIMARY KEY     (ExamID, QuestionID),
-    FOREIGN KEY     (QuestionID)    REFERENCES Question(QuestionID),
-    FOREIGN KEY     (ExamID)        REFERENCES Exam(ExamID)
+    FOREIGN KEY     (QuestionID)    REFERENCES Question(QuestionID) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY     (ExamID)        REFERENCES Exam(ExamID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 /*============================== INSERT DATABASE =======================================*/
@@ -171,12 +171,11 @@ VALUES 						('Essay'			           ),
 
 USE Testing_System_Db;
 INSERT INTO CategoryQuestion(CategoryName	               )
-VALUES 						(N'Nội quy công ty'            ), 
-                            (N'Quy định về an toàn'        ),
-                            (N'Thực hiện 5S'               ),
-                            (N'Mục tiêu công việc'         ),                         
-                            (N'Hiểu biết sản phẩm'         ),
-                            (N'Phân tích vấn đề'           );
+VALUES 						(N'Quy định chung'             ), 
+                            (N'An toàn'                    ),
+                            (N'Hiểu biết chung'            ),
+                            (N'Phương pháp'                );                         
+
 
 USE Testing_System_Db;
 INSERT INTO Question        (`Content`			                                                , CategoryID    , TypeID	 , CreatorID    , CreateDate )
@@ -212,23 +211,23 @@ VALUES                      (N'Trả lời 01'  , 1         , 1         ),
                             (N'Trả lời 19'  , 8         , 0         );
 
 USE Testing_System_Db;
-INSERT INTO Exam            (`Code`         , Title                 , CategoryID, Duration  , CreatorID , CreateDate )
-VALUES                      ('VTIQ001'      , N'Đề thi An toàn'     , 2         , 60        , 2         ,'2024-03-10'),
-                            ('VTIQ002'      , N'Đề thi Nội quy'     , 1         , 60        , 1         ,'2024-03-15'),
-                            ('VTIQ003'      , N'Đề thi Nội quy'     , 1         , 120       , 1         ,'2024-03-16'),
-                            ('VTIQ004'      , N'Đề thi An toàn'     , 2         , 120       , 2         ,'2024-03-17'),
-                            ('VTIQ005'      , N'Đề thi An toàn'     , 2         , 60        , 2         ,'2024-03-17'),
-                            ('VTIQ006'      , N'Đề thi Nội quy'     , 1         , 120       , 1         ,'2024-03-20'),
-                            ('VTIQ007'      , N'Đề thi An toàn'     , 2         , 60        , 2         ,'2024-03-20'),
-                            ('VTIQ008'      , N'Đề thi An toàn'     , 2         , 60        , 2         ,'2024-03-21');                  
+INSERT INTO Exam            (`Code`         , Title                    , CategoryID, Duration  , CreatorID , CreateDate )
+VALUES                      ('VTIQ001'      , N'Đề thi An toàn 01'     , 2         , 60        , 2         ,'2024-03-10'),
+                            ('VTIQ002'      , N'Đề thi Nội quy 01'     , 1         , 60        , 1         ,'2024-03-15'),
+                            ('VTIQ003'      , N'Đề thi Nội quy 02'     , 1         , 120       , 1         ,'2024-03-16'),
+                            ('VTIQ004'      , N'Đề thi An toàn 02'     , 2         , 120       , 2         ,'2024-03-17');                 
 
 USE Testing_System_Db;
 INSERT INTO ExamQuestion    (ExamID , QuestionID)
 VALUES                      (1      , 1         ),
-                            (2      , 8         ),
-                            (3      , 7         ),
-                            (4      , 3         ),
-                            (5      , 2         ),
-                            (6      , 6         ),
-                            (7      , 4         ),
-                            (8      , 5         );
+                            (1      , 2         ),
+                            (1      , 8         ),
+                            (1      , 7         ),
+                            (2      , 2         ),
+                            (2      , 1         ),
+                            (3      , 4         ),
+                            (3      , 3         ),
+                            (3      , 5         ),
+                            (4      , 7         ),
+                            (4      , 8         ),
+                            (3      , 6         );
